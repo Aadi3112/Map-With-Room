@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.example.mapwithtab.model.CountryModel" />
+
+        <import type="android.view.View" />
+
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/textview_name"
+                style="@style/text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="05dp"
+                android:text="@{`Country Name : ` +data.name.official}"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Name : John Berry" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraint_expand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/textview_name">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textview_time"
+                    style="@style/text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="05dp"
+                    android:text="@{`Time Zone : ` +data.timezones[0]}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Time Zone : John Berry" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textview_region"
+                    style="@style/text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="05dp"
+                    android:text="@{`Region : ` +data.region}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textview_time"
+                    tools:text="Region : John Berry" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textview_capital"
+                    style="@style/text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="05dp"
+                    android:text="@{`Capital : ` +data.capital[0]}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textview_region"
+                    tools:text="Capital : John Berry" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textview_currency"
+                    style="@style/text"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="05dp"
+                    android:text="@{`Currency : ` +data.currencies.toString()}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textview_capital"
+                    tools:text="Currency : John Berry" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
